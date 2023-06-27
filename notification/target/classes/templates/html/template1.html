@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title th:remove="all">Template for HTML email</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <p>
+        Hello, <span th:text="${name}">Peter Static</span>!
+    </p>
+    <!--    <p th:if="${name.length() > 10}">-->
+    <!--        Wow! You've got a long name (more than 10 chars)!-->
+    <!--    </p>-->
+    <h3>This is DocumentNumber:<span th:text="${documentNumber}">1</span></h3>
+    <h3>Vendor's Name: <span th:text="${vendorName}">VENDOR</span></h3>
+    <h3>Location <span th:text="${location}"></span></h3>
+    <p>
+        You have been successfully subscribed to the <b>Crato-flow</b> on
+        <span th:text="${subscriptionDate}">28-12-2012</span>
+    </p>
+    <p>
+        Your Password Reset Token:
+        <span th:text="${token}">111</span>
+    </p>
+    <img src="https://media.licdn.com/dms/image/C4E03AQHGf8HnmBjqAw/profile-displayphoto-shrink_800_800/0/1516464437171?e=2147483647&v=beta&t=Qn4ILvAU8C_v-6N94Lof9kVq8_2pDwOUkKHdf4EhkM0"
+        height="200" width="200" alt="" srcset="">
+    <p>We write on following technologies:-</p>
+    <ul th:remove="all-but-first">
+        <li th:each="tech : ${technologies}" th:text="${tech}">Java</li>
+        <li>JavaScript</li>
+        <li>CSS</li>
+    </ul>
+    <p>
+        Regards, <br />
+        <em>The Crato-flow Team</em>
+    </p>
+</body>
+
+</html>
